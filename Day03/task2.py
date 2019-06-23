@@ -1,22 +1,22 @@
 class MightMarket:
-    def __init__(self, _name, _loc, _sells, _pay=("WechatPay", "AliPay", "CashPay")):
+    def __init__(self, _name, _addr, _sells, _pay=("WechatPay", "AliPay", "CashPay", "PayPal")):
         self.name = _name
-        self.loc = _loc
+        self.loc = _addr
         self.sales = _sells
         self.pay = _pay
 
-    def canEatBy(self, _foodType, _patType):
-        if _foodType in self.sales:
-            if _patType in self.pay:
-                print("速度来吃")
+    def canEatBy(self, foodType, payType):
+        if foodType in self.sales:
+            if payType in self.pay:
+                print("快来吃")
             else:
-                print("只能用", self.pay, "!!!!")
+                print("只能用", self.pay, "!!")
         else:
-            print("没饭，快滚！！！", "没有", _foodType)
+            print("没有", foodType)
 
 
-rs1 = MightMarket("南苑餐厅", "南苑", ["炒面", "盖浇饭", "自选菜"])
-rs1.canEatBy("烧烤", "WechatPay")
+rs1 = MightMarket("华苑餐厅", "华苑", ["炒面", "鸭架饭", "自选菜"])
+rs1.canEatBy("鸭架饭", "Wechat")
 
-rs2 = MightMarket("北苑餐厅", "北苑", ["鸡蛋灌饼", "水煎包", "热干面"])
-rs2.canEatBy("水煎包", "AliPay")
+rs2 = MightMarket("教苑餐厅", "教苑", ["鸡蛋灌饼", "烩面", "热干面"])
+rs2.canEatBy("烩面", "AliPay")
