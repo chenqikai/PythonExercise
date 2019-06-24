@@ -1,4 +1,4 @@
-class Boll:
+class Boll(object):
     ProdectPlace = "China"
 
     def __init__(self, _color):

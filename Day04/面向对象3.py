@@ -1,4 +1,4 @@
-class Human:
+class Human(object):
     character = "互帮互助"
 
     def __init__(self, _name, _age):
