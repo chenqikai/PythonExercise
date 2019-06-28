@@ -1,18 +1,19 @@
-import csv
+import csv, time
 from bs4 import BeautifulSoup
 import bs4
 import requests
 
 try:
 
-    with open("stock.csv", "a", newline="")as f:
+    with open("stock.csv", "w", newline="")as f:
         csv_writer = csv.writer(f)
         csv_writer.writerow(
             ["代码", "简称", "最新价(HKD)", "涨跌幅", "涨跌额", "5分钟涨幅", "成交量(手)", "成交额(万元)", "换手率", "振幅", "量比", "市盈率"])
 
         i = 1
         while True:
-            # time.sleep(1)
+            time.sleep(1)
+            print("开始爬取第" + str(i) + "页")
             response = requests.get("https://quote.stockstar.com/stock/sha_3_1_" + str(i) + ".html")
             htm = BeautifulSoup(response.text, features="html.parser")
             #
