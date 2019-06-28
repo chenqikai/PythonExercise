@@ -17,7 +17,7 @@ with open("baby.csv", "w") as f:
             url = "http://www.shuaia.net/zhengtai/index_" + str(index) + ".html"
         response = requests.get(url)
         response.encoding = "utf-8"
-        if response.status_code == 404:
+        if index == 4:
             print("爬取完毕=====================")
             break
         else:
